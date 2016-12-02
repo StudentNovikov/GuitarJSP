@@ -22,6 +22,7 @@
         <tr><td>Выбрать гитару по id(например, id=2)</td> </tr>
        <tr> <td><input type="text" name="id" value="" size="50"/></td>
       </tr>
+
       </table>
        <input type="submit" value="guitarID" name="guitarID"/>
   </form>
