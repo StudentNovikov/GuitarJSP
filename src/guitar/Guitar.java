@@ -51,18 +51,6 @@ public class Guitar {
         this.guitarTypeId = guitarTypeId;
     }
 
-    public Guitar(ResultSet result) throws SQLException{
-        this.id= result.getInt("id");
-        this.name=result.getString("name");
-        this.description=result.getString("description");
-        this.price=result.getDouble("price");
-        this.color=result.getString("color");
-        this.stringType=result.getString("stringType");
-        this.photo=result.getString("photo");
-        this.guitarBrandId=result.getInt("guitarBrandId");
-        this.guitarTypeId=result.getInt("guitarTypeId");
-    }
-
     public int getId() {
         return id;
     }
@@ -99,8 +87,4 @@ public class Guitar {
         return guitarTypeId;
     }
 
-    public void print(){
-        System.out.println(id+" | "+name+" | "+description+" | "+ price+" | "+ color+ " | "+ stringType+" | "+photo+" | "+guitarBrandId+" | "+guitarTypeId);
-
-    }
 }

@@ -21,7 +21,7 @@ public class GuitarDAO {
         return guitarDAO;
     }
 
-    public void createGuitar(Guitar guitar, ResultSet result) throws SQLException{
+    private void createGuitar(Guitar guitar, ResultSet result) throws SQLException{
         guitar.setId(result.getInt("id"));
         guitar.setColor(result.getString("color"));
         guitar.setDescription(result.getString("description"));
@@ -79,10 +79,10 @@ public class GuitarDAO {
         return  returnedGuitarList;
     }
 
-    public List<Guitar> getSpecificStringGuitars(boolean ismetal) throws SQLException{
+    public List<Guitar> getSpecificStringGuitars(boolean isMetal) throws SQLException{
         Connection connection = connect();
         PreparedStatement preparedStatement = null;
-        if (ismetal) {
+        if (isMetal) {
             preparedStatement = connection.prepareStatement("SELECT * FROM GUITAR WHERE STRINGTYPE LIKE 'metal%'");
         } else{
             preparedStatement = connection.prepareStatement("SELECT * FROM GUITAR WHERE STRINGTYPE LIKE 'nylon%'");

@@ -27,6 +27,9 @@
     <tr><td>Название</td>
         <td><%=myFirstOneGuitar.getName()%></td>
     </tr>
+    <tr><td>Описание</td>
+        <td><%=myFirstOneGuitar.getDescription()%></td>
+    </tr>
     <tr><td>Цена</td>
         <td><%=myFirstOneGuitar.getPrice()%></td>
     </tr>
