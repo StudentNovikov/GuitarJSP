@@ -3,7 +3,7 @@ import java.sql.*;
 /**
  * Created by Alex on 27.11.2016.
  */
-public class guitar {
+public class Guitar {
     private int id;
     private String name;
     private String description;
@@ -14,7 +14,7 @@ public class guitar {
     private int guitarBrandId;
     private int guitarTypeId;
 
-    public guitar(ResultSet result) throws SQLException{
+    public Guitar(ResultSet result) throws SQLException{
         this.id= result.getInt("id");
         this.name=result.getString("name");
         this.description=result.getString("description");

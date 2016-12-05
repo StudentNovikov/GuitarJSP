@@ -7,8 +7,8 @@
 --%>
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); %>
 <%@page import="java.sql.*" %>
-<%@page import="workingWithBase.guitarSELECT" %>
-<%@page import="guitar.guitar" %>
+<%@page import="workingWithBase.GuitarSELECT" %>
+<%@page import="guitar.Guitar" %>
 <%@page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -25,14 +25,14 @@
     } catch (SQLException e) {
         e.printStackTrace();
     }
-    ArrayList<guitar> specificStringGuitars;
+    ArrayList<Guitar> specificStringGuitars;
     String temp = request.getParameter("stringType");
     if (temp.equals("metal"))
     {
-        specificStringGuitars = guitarSELECT.metalStrings(connection);
+        specificStringGuitars = GuitarSELECT.metalStrings(connection);
     } else
     {
-        specificStringGuitars = guitarSELECT.nylonStrings(connection);
+        specificStringGuitars = GuitarSELECT.nylonStrings(connection);
     }
 
 
@@ -46,7 +46,7 @@
         <td>Номер бренда</td>
         <td>Цена</td>
     </tr>
-    <% for (guitar g:specificStringGuitars ) {%>
+    <% for (Guitar g:specificStringGuitars ) {%>
     <tr> <td><%=g.getId()%></td><td><%=g.getName()%></td><td><%=g.getColor()%></td><td><%=g.getStringType()%></td>
         <td><%=g.getGuitarBrandId()%></td><td><%=g.getPrice()%></td>
     </tr>

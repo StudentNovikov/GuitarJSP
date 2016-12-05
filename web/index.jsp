@@ -7,8 +7,8 @@
 --%>
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); %>
 <%@page import="java.sql.*" %>
-<%@page import="workingWithBase.guitarSELECT" %>
-<%@page import="guitar.guitar" %>
+<%@page import="workingWithBase.GuitarSELECT" %>
+<%@page import="guitar.Guitar" %>
 <%@page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 

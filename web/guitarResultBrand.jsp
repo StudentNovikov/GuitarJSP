@@ -7,8 +7,8 @@
 --%>
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); %>
 <%@page import="java.sql.*" %>
-<%@page import="workingWithBase.guitarSELECT" %>
-<%@page import="guitar.guitar" %>
+<%@page import="workingWithBase.GuitarSELECT" %>
+<%@page import="guitar.Guitar" %>
 <%@page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -28,7 +28,7 @@
 
 
     int brand = Integer.parseInt(request.getParameter("brand"));
-    ArrayList<guitar> allGuitars = guitarSELECT.byBrand(brand,connection);
+    ArrayList<Guitar> allGuitars = GuitarSELECT.byBrand(brand,connection);
 
 %>
 <table border="1">
@@ -40,7 +40,7 @@
         <td>Номер бренда</td>
         <td>Цена</td>
     </tr>
-    <% for (guitar g:allGuitars ) {%>
+    <% for (Guitar g:allGuitars ) {%>
     <tr> <td><%=g.getId()%></td><td><%=g.getName()%></td><td><%=g.getColor()%></td><td><%=g.getStringType()%></td>
         <td><%=g.getGuitarBrandId()%></td><td><%=g.getPrice()%></td>
     </tr>
