@@ -6,10 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); %>
-<%@page import="java.sql.*" %>
-<%@page import="workingWithBase.GuitarSELECT" %>
+
 <%@page import="guitar.Guitar" %>
-<%@page import="java.util.ArrayList" %>
+<%@ page import="DAO.GuitarDAO" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -18,19 +18,10 @@
 </head>
 <body>
 <%
-    Connection connection = null;
-    try {
-        connection = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:XE", "ALEX","123qwe456asd");
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-
-
     int brand = Integer.parseInt(request.getParameter("brand"));
-    ArrayList<Guitar> allGuitars = GuitarSELECT.byBrand(brand,connection);
-
+    List<Guitar> allGuitars = GuitarDAO.getInstance().getGuitarWithBrand(brand);
 %>
+
 <table border="1">
     <caption>Все гитары бренда номер <%=brand%></caption>
     <tr><td>id</td>

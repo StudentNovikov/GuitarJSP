@@ -6,10 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); %>
-<%@page import="java.sql.*" %>
-<%@page import="workingWithBase.GuitarSELECT" %>
-<%@page import="guitar.Guitar" %>
-<%@page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -53,7 +49,7 @@
 
   <form name="myForm5" action="guitarResultPrices.jsp" method="post">
       <table>
-          <tr><td>Указать ценовой диапазон(например 200, 1500)</td> </tr>
+          <tr><td>Указать ценовой диапазон(например 200.50 , 1500.99)</td> </tr>
           <tr> <td><input type="text" name="lowPrice" value="минимальная цена" size="50"/></td> </tr>
           <tr> <td><input type="text" name="topPrice" value="максимальная цена" size="50"/></td> </tr>
       </table>

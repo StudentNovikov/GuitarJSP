@@ -7,9 +7,8 @@
 --%>
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); %>
 <%@page import="java.sql.*" %>
-<%@page import="workingWithBase.GuitarSELECT" %>
 <%@page import="guitar.Guitar" %>
-<%@page import="java.util.ArrayList" %>
+<%@ page import="DAO.GuitarDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -18,19 +17,9 @@
 </head>
 <body>
 <%
-    Connection connection = null;
-    try {
-        connection = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:XE", "ALEX","123qwe456asd");
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-
     String temp = request.getParameter("id");
     int id = Integer.parseInt(temp);
-
-    Guitar myFirstOneGuitar = GuitarSELECT.byID(id,connection);
-
+    Guitar myFirstOneGuitar = GuitarDAO.getInstance().getGuitarWithID(id);
 %>
 <table border="1">
     <caption>Выбранная гитара с id = <%=id%></caption>

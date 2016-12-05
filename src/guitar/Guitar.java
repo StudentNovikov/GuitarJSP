@@ -13,6 +13,43 @@ public class Guitar {
     private String photo;
     private int guitarBrandId;
     private int guitarTypeId;
+    public Guitar(){};
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setStringType(String stringType) {
+        this.stringType = stringType;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public void setGuitarBrandId(int guitarBrandId) {
+        this.guitarBrandId = guitarBrandId;
+    }
+
+    public void setGuitarTypeId(int guitarTypeId) {
+        this.guitarTypeId = guitarTypeId;
+    }
 
     public Guitar(ResultSet result) throws SQLException{
         this.id= result.getInt("id");

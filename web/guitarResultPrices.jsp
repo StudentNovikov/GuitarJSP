@@ -6,10 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); %>
-<%@page import="java.sql.*" %>
-<%@page import="workingWithBase.GuitarSELECT" %>
 <%@page import="guitar.Guitar" %>
-<%@page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="DAO.GuitarDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,20 +16,9 @@
 </head>
 <body>
 <%
-    Connection connection = null;
-    try {
-        connection = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:XE", "ALEX","123qwe456asd");
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-
-
-
-
-    int lowPrice = Integer.parseInt(request.getParameter("lowPrice"));
-    int topPrice = Integer.parseInt(request.getParameter("topPrice"));
-    ArrayList<Guitar> allGuitars = GuitarSELECT.priceLimits(lowPrice,topPrice,connection);;
+    double lowPrice = Double.parseDouble(request.getParameter("lowPrice"));
+    double topPrice = Double.parseDouble(request.getParameter("topPrice"));
+    List<Guitar> allGuitars = GuitarDAO.getInstance().getGuitarsWithSpecificPrice(lowPrice,topPrice);
 
 %>
 <table border="1">
