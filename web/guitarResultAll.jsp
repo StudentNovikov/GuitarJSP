@@ -25,12 +25,13 @@
         <td>Название</td>
         <td>Цвет</td>
         <td>Тип струн</td>
-        <td>Номер бренда</td>
         <td>Цена</td>
+        <td>Тип гитары</td>
+        <td>Название бренда</td>
     </tr>
     <% for (Guitar g:allGuitars ) {%>
     <tr> <td><%=g.getId()%></td><td><%=g.getName()%></td><td><%=g.getColor()%></td><td><%=g.getStringType()%></td>
-        <td><%=g.getGuitarBrandId()%></td><td><%=g.getPrice()%></td>
+        <td><%=g.getPrice()%></td><td><%=g.getGuitarType()%></td><td><%=g.getGuitarBrand()%></td>
     </tr>
     <%}%>
 

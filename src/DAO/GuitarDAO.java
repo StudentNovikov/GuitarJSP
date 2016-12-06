@@ -3,7 +3,9 @@ import guitar.Guitar;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -11,6 +13,8 @@ import java.util.List;
  */
 public class GuitarDAO {
     private static GuitarDAO guitarDAO;
+    public Map<Integer,String> guitarTypeMap;
+    public Map<Integer,String> guitarBrandMap;
 
     private GuitarDAO(){};
 
@@ -25,13 +29,12 @@ public class GuitarDAO {
         guitar.setId(result.getInt("id"));
         guitar.setColor(result.getString("color"));
         guitar.setDescription(result.getString("description"));
-        guitar.setGuitarBrandId(result.getInt("guitarBrandId"));
-        guitar.setGuitarTypeId(result.getInt("guitarTypeId"));
         guitar.setName(result.getString("name"));
         guitar.setPhoto(result.getString("photo"));
         guitar.setPrice(result.getInt("price"));
         guitar.setStringType(result.getString("stringType"));
-
+        guitar.setGuitarType(guitarTypeMap.get(result.getInt("guitarTypeId")));
+        guitar.setGuitarBrand(guitarBrandMap.get(result.getInt("guitarBrandId")));
     }
 
     public Guitar getGuitarWithID(int id) throws SQLException{
@@ -119,11 +122,15 @@ public class GuitarDAO {
         return  returnedGuitarList;
     }
 
-    public List<Guitar> getGuitarWithBrand(int brand) throws SQLException{
+    public List<Guitar> getGuitarWithBrand(String brand) throws SQLException{
         Connection connection = connect();
         PreparedStatement preparedStatement = null;
-        preparedStatement = connection.prepareStatement("SELECT * FROM GUITAR WHERE GUITARBRANDID =?");
-        preparedStatement.setInt(1,brand);
+        preparedStatement = connection.prepareStatement("SELECT GUITAR.*\n" +
+                "FROM GUITAR\n" +
+                "INNER JOIN GUITARBRAND\n" +
+                "ON GUITAR.GUITARBRANDID = GUITARBRAND.ID\n" +
+                "WHERE GUITARBRAND.NAME = ?");
+        preparedStatement.setString(1,brand);
         ResultSet resultSet = preparedStatement.executeQuery();
         List<Guitar> returnedGuitarList = new ArrayList<Guitar>();
         while (resultSet.next()){
@@ -148,5 +155,13 @@ public class GuitarDAO {
 
 
         return  connection;
+    }
+
+    public void setGuitarTypeMap(Map<Integer,String> typeMap){
+        guitarTypeMap = new HashMap<>(typeMap);
+    }
+
+    public void setGuitarBrandMap(Map<Integer,String> typeMap){
+        guitarBrandMap = new HashMap<>(typeMap);
     }
 }

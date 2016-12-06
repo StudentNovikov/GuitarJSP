@@ -1,7 +1,36 @@
 package guitar;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Alex on 27.11.2016.
  */
 public class GuitarBrand {
+    private int id;
+    private String name;
+    private String description;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

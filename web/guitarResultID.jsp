@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); %>
-<%@page import="java.sql.*" %>
 <%@page import="guitar.Guitar" %>
 <%@ page import="DAO.GuitarDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -35,6 +34,9 @@
     </tr>
     <tr><td>Тип струн</td>
         <td><%=myFirstOneGuitar.getStringType()%></td>
+    </tr>
+    <tr><td>Пример работы toString()</td>
+        <td><%=myFirstOneGuitar.toString()%></td>
     </tr>
 
     </table>

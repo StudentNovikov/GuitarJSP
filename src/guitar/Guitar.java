@@ -1,9 +1,14 @@
 package guitar;
-import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Alex on 27.11.2016.
  */
 public class Guitar {
+
+    public Guitar(){};
+
     private int id;
     private String name;
     private String description;
@@ -11,9 +16,24 @@ public class Guitar {
     private String color;
     private String stringType;
     private String photo;
-    private int guitarBrandId;
-    private int guitarTypeId;
-    public Guitar(){};
+    private String guitarBrand;
+    private String guitarType;
+
+    public String getGuitarBrand() {
+        return guitarBrand;
+    }
+
+    public void setGuitarBrand(String guitarBrand) {
+        this.guitarBrand = guitarBrand;
+    }
+
+    public String getGuitarType() {
+        return guitarType;
+    }
+
+    public void setGuitarType(String guitarType) {
+        this.guitarType = guitarType;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -41,14 +61,6 @@ public class Guitar {
 
     public void setPhoto(String photo) {
         this.photo = photo;
-    }
-
-    public void setGuitarBrandId(int guitarBrandId) {
-        this.guitarBrandId = guitarBrandId;
-    }
-
-    public void setGuitarTypeId(int guitarTypeId) {
-        this.guitarTypeId = guitarTypeId;
     }
 
     public int getId() {
@@ -79,12 +91,8 @@ public class Guitar {
         return photo;
     }
 
-    public int getGuitarBrandId() {
-        return guitarBrandId;
+    @Override
+    public String toString() {
+        return "Guitar name: " + getName() + " , price is " +getPrice()+" $";
     }
-
-    public int getGuitarTypeId() {
-        return guitarTypeId;
-    }
-
 }

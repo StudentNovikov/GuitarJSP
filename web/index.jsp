@@ -1,4 +1,4 @@
-<%--
+<%@ page import="DAO.GuitarTypeDAO" %><%--
   Created by IntelliJ IDEA.
   User: Alex
   Date: 29.11.2016
@@ -7,7 +7,13 @@
 --%>
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="DAO.GuitarTypeDAO" %>
+<%@ page import="DAO.GuitarBrandDAO" %>
 
+<%
+    GuitarTypeDAO.getInstance().getAllGuitarTypes();
+    GuitarBrandDAO.getInstance().getAllGuitarBrands();
+%>
 <html>
   <head>
     <title>$Title$</title>
@@ -58,7 +64,7 @@
 
   <form name="myForm6" action="guitarResultBrand.jsp" method="post">
       <table>
-          <tr><td>Выбрать гитару по бренду(1-5)</td> </tr>
+          <tr><td>Выбрать гитару по бренду(Fender,Gibson,Ibanez,Maton,Lakewood)</td> </tr>
           <tr> <td><input type="text" name="brand" value="" size="50"/></td>
           </tr>
       </table>
