@@ -13,6 +13,7 @@ import java.util.Map;
  */
 public class GuitarDAO {
     private static GuitarDAO guitarDAO;
+
     public Map<Integer,String> guitarTypeMap;
     public Map<Integer,String> guitarBrandMap;
 

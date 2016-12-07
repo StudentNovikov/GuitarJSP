@@ -48,7 +48,6 @@ public class GuitarBrandDAO {
         return  returnedGuitarBrandList;
     }
 
-
     private void addToMap(int id,String value){
         guitarBrandMap.put(id,value);
     }

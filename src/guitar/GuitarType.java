@@ -8,6 +8,7 @@ import java.util.Map;
  */
 public class GuitarType {
     private int id;
+
     private String name;
 
     public int getId() {

@@ -22,6 +22,7 @@
 <caption>Такой гитары не существует</caption> <% } else {
 %>
 
+
 <table border="1">
     <caption>Выбранная гитара с названием = <%=name%></caption>
 

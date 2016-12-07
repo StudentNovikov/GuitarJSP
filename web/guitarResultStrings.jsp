@@ -44,7 +44,6 @@
         <td><%=g.getGuitarBrand()%></td><td><%=g.getPrice()%></td>
     </tr>
     <%}%>
-
 </table>
 <form name="redirectToIndex" action="index.jsp" method="post">
     <input type="submit" name="gotoIndex" value="goBack"/>

@@ -17,6 +17,7 @@
 <html>
   <head>
     <title>$Title$</title>
+
   </head>
   <body>
   <form name="myForm1" action="guitarResultID.jsp" method="post">

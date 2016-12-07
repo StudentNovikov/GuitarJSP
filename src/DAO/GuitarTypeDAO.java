@@ -10,7 +10,6 @@ import java.util.*;
  */
 public class GuitarTypeDAO {
     private static GuitarTypeDAO guitarTypeDAO;
-
     private Map<Integer,String> guitarTypeMap = new HashMap<>();
     private GuitarTypeDAO(){}
 

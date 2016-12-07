@@ -6,6 +6,7 @@ package guitar;
  */
 public class GuitarBrand {
     private int id;
+
     private String name;
     private String description;
 

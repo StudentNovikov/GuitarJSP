@@ -39,6 +39,7 @@
     }
     else {%>
 
+
 <table border="1">
     <caption>Все гитары из ценовой категории от <%=lowPrice%> до <%=topPrice%></caption>
     <tr><td>id</td>

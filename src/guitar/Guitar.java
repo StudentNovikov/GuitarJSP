@@ -8,7 +8,6 @@ import java.util.Map;
 public class Guitar {
 
     public Guitar(){};
-
     private int id;
     private String name;
     private String description;

@@ -34,6 +34,7 @@
     <caption>Гитары с таким id не существует</caption> <% } else {
     %>
 
+
 <table border="1">
     <caption>Выбранная гитара с id = <%=id%></caption>
 

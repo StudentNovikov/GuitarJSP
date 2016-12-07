@@ -19,6 +19,7 @@
 <%
     List<Guitar> allGuitars = GuitarDAO.getInstance().getAllGuitars();
 %>
+
 <table border="1">
     <caption>Все гитары</caption>
     <tr><td>id</td>

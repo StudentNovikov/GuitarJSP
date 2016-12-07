@@ -24,7 +24,6 @@
 %> <caption>Гитар данного бренда нет</caption> <%
 }
 else {%>
-
 <table border="1">
     <caption>Все гитары бренда  <%=brand%></caption>
     <tr><td>id</td>
