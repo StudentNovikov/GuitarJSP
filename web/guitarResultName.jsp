@@ -18,6 +18,8 @@
 <%
     String name = request.getParameter("guitarName");
     Guitar myPickedByName = GuitarDAO.getInstance().getGuitarWithName(name);
+    if (null == myPickedByName.getName()) { %>
+<caption>Такой гитары не существует</caption> <% } else {
 %>
 
 <table border="1">
@@ -35,7 +37,7 @@
     <tr><td>Цвет</td>
         <td><%=myPickedByName.getColor()%></td>
     </tr>
-</table>
+</table> <%}%>
 
 <form name="redirectToIndex" action="index.jsp" method="post">
     <input type="submit" name="gotoIndex" value="goBack"/>

@@ -43,13 +43,17 @@ public class GuitarDAO {
         preparedStatement = connection.prepareStatement("SELECT * FROM GUITAR WHERE ID=?");
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
-        resultSet.next();
-        Guitar returnedGuitar = new Guitar();
-        createGuitar(returnedGuitar,resultSet);
 
-        preparedStatement.close();
-        connection.close();
-        return  returnedGuitar;
+        if (!resultSet.isBeforeFirst() ) {
+            return new Guitar();
+        } else{
+            resultSet.next();
+            Guitar returnedGuitar = new Guitar();
+            createGuitar(returnedGuitar,resultSet);
+            preparedStatement.close();
+            connection.close();
+            return  returnedGuitar;
+        }
     }
 
     public Guitar getGuitarWithName(String name) throws SQLException{
@@ -58,12 +62,17 @@ public class GuitarDAO {
         preparedStatement = connection.prepareStatement("SELECT * FROM GUITAR WHERE NAME=?");
         preparedStatement.setString(1, name);
         ResultSet resultSet = preparedStatement.executeQuery();
-        resultSet.next();
-        Guitar returnedGuitar = new Guitar();
-        createGuitar(returnedGuitar,resultSet);
-        preparedStatement.close();
-        connection.close();
-        return  returnedGuitar;
+
+        if (!resultSet.isBeforeFirst() ) {
+            return new Guitar();
+        } else{
+            resultSet.next();
+            Guitar returnedGuitar = new Guitar();
+            createGuitar(returnedGuitar,resultSet);
+            preparedStatement.close();
+            connection.close();
+             return  returnedGuitar;
+        }
     }
 
     public List<Guitar> getAllGuitars() throws SQLException{

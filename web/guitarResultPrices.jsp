@@ -16,11 +16,29 @@
 </head>
 <body>
 <%
-    double lowPrice = Double.parseDouble(request.getParameter("lowPrice"));
-    double topPrice = Double.parseDouble(request.getParameter("topPrice"));
-    List<Guitar> allGuitars = GuitarDAO.getInstance().getGuitarsWithSpecificPrice(lowPrice,topPrice);
+    String input1 = request.getParameter("lowPrice");
+    String input2 = request.getParameter("topPrice");
+    // checking if input string is actually a int number
+    boolean parsable = true;
+    try{
+        Double.parseDouble(input1);
+        Double.parseDouble(input2);
+    }catch(NumberFormatException e){
+        parsable = false;
+    }
 
-%>
+    if (!parsable){ %>
+<caption>Введите цифры в формате x.x ,где x - целое число а не просто строчку, например 20 </caption>
+    <%} else {
+    double lowPrice = Double.parseDouble(input1);
+    double topPrice = Double.parseDouble(input2);
+
+    List<Guitar> allGuitars = GuitarDAO.getInstance().getGuitarsWithSpecificPrice(lowPrice,topPrice);
+    if (allGuitars.isEmpty()){
+    %> <caption>Гитар данной ценовой категории нет</caption> <%
+    }
+    else {%>
+
 <table border="1">
     <caption>Все гитары из ценовой категории от <%=lowPrice%> до <%=topPrice%></caption>
     <tr><td>id</td>
@@ -36,7 +54,7 @@
     </tr>
     <%}%>
 
-</table>
+</table> <%}}%>
 <form name="redirectToIndex" action="index.jsp" method="post">
     <input type="submit" name="gotoIndex" value="goBack"/>
 </form>

@@ -27,6 +27,7 @@ public class GuitarBrandDAO {
     private void createGuitarBrand(GuitarBrand guitarBrand, ResultSet result) throws SQLException{
         guitarBrand.setName(result.getString("name"));
         guitarBrand.setId(result.getInt("id"));
+        guitarBrand.setDescription(result.getString("description"));
     }
 
     public List<GuitarBrand> getAllGuitarBrands() throws SQLException{

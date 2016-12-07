@@ -17,29 +17,43 @@
 <body>
 <%
     String temp = request.getParameter("id");
+    // checking if input string is actually a int number
+    boolean parsable = true;
+    try{
+        Integer.parseInt(temp);
+    }catch(NumberFormatException e){
+        parsable = false;
+    }
+    if (!parsable){ %>
+       <caption>Введите цифру, а не просто строчку, например 20 </caption>
+    <%} else {
     int id = Integer.parseInt(temp);
-    Guitar myFirstOneGuitar = GuitarDAO.getInstance().getGuitarWithID(id);
-%>
+    Guitar myPickedById= GuitarDAO.getInstance().getGuitarWithID(id);
+
+    if (null == myPickedById.getName()) { %>
+    <caption>Гитары с таким id не существует</caption> <% } else {
+    %>
+
 <table border="1">
     <caption>Выбранная гитара с id = <%=id%></caption>
 
     <tr><td>Название</td>
-        <td><%=myFirstOneGuitar.getName()%></td>
+        <td><%=myPickedById.getName()%></td>
     </tr>
     <tr><td>Описание</td>
-        <td><%=myFirstOneGuitar.getDescription()%></td>
+        <td><%=myPickedById.getDescription()%></td>
     </tr>
     <tr><td>Цена</td>
-        <td><%=myFirstOneGuitar.getPrice()%></td>
+        <td><%=myPickedById.getPrice()%></td>
     </tr>
     <tr><td>Тип струн</td>
-        <td><%=myFirstOneGuitar.getStringType()%></td>
+        <td><%=myPickedById.getStringType()%></td>
     </tr>
     <tr><td>Пример работы toString()</td>
-        <td><%=myFirstOneGuitar.toString()%></td>
+        <td><%=myPickedById.toString()%></td>
     </tr>
 
-    </table>
+    </table> <%}}%>
 <form name="redirectToIndex" action="index.jsp" method="post">
     <input type="submit" name="gotoIndex" value="goBack"/>
 </form>

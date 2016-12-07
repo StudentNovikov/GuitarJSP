@@ -20,10 +20,13 @@
 <%
     String brand = request.getParameter("brand");
     List<Guitar> allGuitars = GuitarDAO.getInstance().getGuitarWithBrand(brand);
-%>
+    if (allGuitars.isEmpty()){
+%> <caption>Гитар данного бренда нет</caption> <%
+}
+else {%>
 
 <table border="1">
-    <caption>Все гитары бренда номер <%=brand%></caption>
+    <caption>Все гитары бренда  <%=brand%></caption>
     <tr><td>id</td>
         <td>Название</td>
         <td>Цвет</td>
@@ -37,7 +40,7 @@
     </tr>
     <%}%>
 
-</table>
+</table> <%}%>
 <form name="redirectToIndex" action="index.jsp" method="post">
     <input type="submit" name="gotoIndex" value="goBack"/>
 </form>

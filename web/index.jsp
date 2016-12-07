@@ -47,7 +47,7 @@
   <form name="myForm4" action="guitarResultStrings.jsp" method="post">
       <table>
           <tr><td>Выбрать тип струн</td> </tr>
-          <tr> <td><input name="stringType" type="radio" value="metal"> Металлические   </td></tr>
+          <tr> <td><input name="stringType" type="radio" value="metal" checked="checked"> Металлические   </td></tr>
           <tr> <td><input name="stringType" type="radio" value="nylon"> Нейлоновой </td> </tr>
       </table>
       <input type="submit" value="guitarStrings" name="guitarStringType"/>

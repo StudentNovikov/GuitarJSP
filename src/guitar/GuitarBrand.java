@@ -1,6 +1,5 @@
 package guitar;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * Created by Alex on 27.11.2016.
